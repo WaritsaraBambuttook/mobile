@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="ejs.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="cordova.js"></script>
+  <script src="./js/getData.js"></script>
+  <script>
+
+  </script>
+
+  <style>
+    .toolbaricon {
+      padding-left: 5px;
+      padding-bottom: 5px;
+      padding-right: 5px;
+      color: orange;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <ons-page>
+    <ons-toolbar>
+      <div class="left" id="icon">
+        <ons-icon class="toolbaricon" size="30px" icon="fa-shopping-bag">
+        </ons-icon>
+      </div>
+      <div class="center" id="appname">#</div>
+      <div class="right">
+        <ons-icon class="toolbaricon" size="30px" icon="fa-sign-out" onclick= "window.location.href='./views/logout.html'">
+        </ons-icon>
+      </div>
+    </ons-toolbar>
+
+    <ons-navigator swipeable id="myNavigator" page="./views/home.html"></ons-navigator>
+
+    <ons-bottom-toolbar id="btTool" modifier="aligned" class="botton-toolbar-align center">
+      <ons-row>
+        <ons-col id="tab1" style="text-align: center;" class="hightlight-bottom-toolbar" onclick="changeTab('./views/home.html', 1)">
+          Home
+        </ons-col>
+        <ons-col id="tab2" style="text-align: center;" onclick="changeTab('./views/cart.html', 2)">
+          Cart
+        </ons-col>
+        <ons-col id="tab3" style="text-align: center;" onclick="changeTab('./views/allproducts.html', 3)">
+          All Product
+        </ons-col>
+      </ons-row>
+    </ons-bottom-toolbar>
+
+    <ons-modal direction="up">
+      <div style="text-align: center">
+        <p>
+          <ons-icon icon="md-spinner" size="28px" spin></ons-icon> Loading...
+        </p>
+      </div>
+    </ons-modal>
+  </ons-page>
+
+  <script type="text/javascript" src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/navigator.js"></script>
+</body>
+
+<!-- templates -->
+
+<script id="icon_template" type="text/template">
+  <ons-row style="height:120px; " vertical-align="center">  
+        <% categories.forEach(function(category){%>  
+            <ons-col style="background:#66ff99; border-style: outset;" width="33%" onclick="gotoCategory('<%= category.name %>')">
+                <p style="text-align: center; margin: 10px;">
+            <ons-icon size="60px" icon="<%= category.icon %>"></ons-icon>
+                </p>
+                <p style="text-align: center; margin: 10px;" id="icon1_text">
+                    <%= category.name %>
+                </p>
+            </ons-col>
+        <%});%>
+  </ons-row>
+</script>
+
+<script id="products_template" type="text/template">
+  <ons-row >  
+        <% data.forEach(function(data){%>  
+          
+            <ons-col style="border-style: dashed; border-style: outset;"  onclick="gotodetailProdcut('<%= data.name %>', '<%= data.cat %>')" >
+                <p style="text-align: center; margin: 10px;">
+                    <img src="<%= data.photo %>" style="text-align: center;  margin: 10px; width:100px; height:100px; padding-right:5px;">
+                </p>
+                <p style="text-align: center; margin: 10px;">
+                    <span class="list-item__title"  ><%= data.name %></span>
+                  </p>
+                  <p style="text-align: center; margin: 10px;">
+                      <span class="list-item__subtitle" style="color: blue"><%= data.price %></span>
+                    </p>
+            </ons-col>
+        <%});%>
+  </ons-row>
+</script>
+
+<script id="Detailproducts_template" type="text/template">
+  <ons-row class="detail">  
+        <% data.forEach(function(data){%>  
+          
+            <ons-col style="border-style: dashed; border-style: outset;" >
+                <p style="text-align: center; margin: 10px;">
+                    <img src="<%= data.photo %>" style="text-align: center;  margin: 10px; width:100px; height:100px; padding-right:5px;">
+                </p>
+                <p style="text-align: center; margin: 10px;">
+                    <span class="list-item__title"  ><%= data.name %></span>
+                  </p>
+                  <p style="text-align: center; margin: 10px;">
+                      <span class="list-item__subtitle" style="color: blue"><%= data.price %></span>
+                    </p>
+            </ons-col>
+            <ons-col>
+               <p style="text-align: center; margin-top: 10px;">
+            <ons-button onclick='addtocart([<%- JSON.stringify(data) %>])'>Add to Cart</ons-button>
+              </p>
+            </ons-col>
+        <%});%>
+        
+  </ons-row>
+  
+</script>
+
+<script id="cart_template" type="text/template">
+  <ons-row>  
+        <% cart.forEach(function(data, index){%>  
+          <ons-list-item  style="border-style: outset;">
+            <div class="left">
+              
+              <img src="<%= data.photo %>" style="text-align: center; margin: 10px; width:70px; height:70px; padding-right:5px;">
+            </div>
+            <div class="center" style="padding-left:5px;">
+              <span class="list-item__title"  ><%= data.name %></span>
+              <span class="list-item__subtitle" style="color: blue"><%= data.price %></span>
+            </div>
+            <div class="right">
+              <p style="text-align: center; margin: 10px;">
+                <ons-icon style="color: grey" size="30px" icon="md-delete" onclick="removeCartProduct(<%= index %>)"></ons-icon>
+              </p>
+            </div>
+          </ons-list-item>
+        <%});%>
+  </ons-row>
+</script>
+
+</html>

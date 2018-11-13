@@ -1,0 +1,33 @@
+.hightlight-bottom-toolbar{
+    background-color: rgba(96, 119, 165, 0.3)
+}
+.detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.parent {
+    
+}
+.child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 10px dashed wheat;
+    width: 150px;
+    height: 150px
+ }
+ .btnScan{
+    background-color: rgb(90, 199, 94); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 16px;
+
+ }

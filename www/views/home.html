@@ -1,0 +1,24 @@
+<ons-page id="home">
+
+    <p style="text-align: center; margin-top: 10px;">
+        <ons-search-input placeholder="Search" onchange="search(this.value)"></ons-search-input>
+    </p>
+    <p style="text-align: center; margin-top: 10px;">
+        <button class="btnScan" onclick="openQRScanner()" id="push-button">Scan QR Code</button>
+    </p>
+    <ons-carousel swipeable auto-scroll overscrollable id="carousel" style="height: 300px;">
+        <ons-carousel-item id="carousel1" style="background: url('images/1.jpg') no-repeat center; background-size: contain;">
+        </ons-carousel-item>
+        <ons-carousel-item id="carousel2" style="background: url('images/2.jpg') no-repeat center; background-size: contain;">
+        </ons-carousel-item>
+        <ons-carousel-item id="carousel3" style="background: url('images/3.jpg') no-repeat center; background-size: contain;">
+        </ons-carousel-item>
+    </ons-carousel>
+
+    <div id="icons"></div>
+    <!-- <script>
+        function scanQR(){
+            window.location.href = './views/scan.html'
+        }
+    </script> -->
+</ons-page>
