@@ -13,9 +13,6 @@
     "cordova-plugin-buildinfo": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
     },
-    "cordova-universal-links-plugin": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
     "cordova-plugin-browsertab": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
     },
@@ -23,6 +20,9 @@
       "PACKAGE_NAME": "io.cordova.hellocordova"
     },
     "cordova-plugin-qrscanner": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-universal-links-plugin": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },

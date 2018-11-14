@@ -43,7 +43,7 @@
 
 
 <body>
-    <ons-page>
+    <ons-page id="logout">
             <div style="text-align: center; margin-top: 30px;">
         <p style="margin-top: 30px;">
             <ons-button onclick="logout()">Log out</ons-button>
@@ -53,7 +53,7 @@
     <script>
         function logout() {
             firebase.auth().signOut().then(function () {
-                ons.notification.alert('Seee u agein');
+                ons.notification.alert('See u agein');
                 window.location.href='login.html';
                 // Sign-out successful.
             }).catch(function (error) {

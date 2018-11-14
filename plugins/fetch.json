@@ -15,14 +15,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-universal-links-plugin": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-universal-links-plugin-fix"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-browsertab": {
     "source": {
       "type": "registry",
@@ -61,6 +53,14 @@
       "id": "cordova-plugin-add-swift-support"
     },
     "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-universal-links-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/walteram/cordova-universal-links-plugin.git"
+    },
+    "is_top_level": true,
     "variables": {}
   }
 }

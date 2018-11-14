@@ -24,7 +24,6 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="cordova-plugin-buildinfo" spec="2.0.2" />
-    <plugin name="cordova-universal-links-plugin" spec="~1.2.1" />
     <plugin name="cordova-plugin-browsertab" spec="0.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="3.0.0" />
     <universal-links>
@@ -32,9 +31,11 @@
         <host name="shopee-45110.firebaseapp.com" scheme="https">
             <path url="/__/auth/callback" />
         </host>
+        <preference name="AndroidLaunchMode" value="singleTask" />
     </universal-links>
     <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
     <plugin name="cordova-plugin-qrscanner" spec="^2.6.0" />
+    <plugin name="cordova-universal-links-plugin" spec="https://github.com/walteram/cordova-universal-links-plugin.git" />
     <engine name="browser" spec="^5.0.4" />
     <engine name="android" spec="^7.1.2" />
     <engine name="ios" spec="^4.5.5" />
