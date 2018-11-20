@@ -40,7 +40,7 @@ var GetData = {
                 console.log("No such document!");
             }
         }).catch(function (error) {
-            console.log("Error getting document:", error);
+            console.log(error);
         });
     },
     getProductByCat: function (category) {

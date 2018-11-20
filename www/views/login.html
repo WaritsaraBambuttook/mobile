@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="ejs.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-    <script src="cordova.js"></script>
+    <script src="../cordova.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/Signin.js"></script>
     <script>
     </script>
     <style>
@@ -24,28 +25,48 @@
 
 <body onload="">
     <ons-page>
-        <div style="text-align: center; margin-top: 30px;">
-            <p>
-                <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
-            </p>
-            <p>
-                <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
-            </p>
-            <p style="margin-top: 30px;">
-                <ons-button id="login">Sign in</ons-button>
-            </p>
+        <!-- <div style="text-align: center; margin-top: 30px;">
+            
             <p style="margin-top: 30px;">
                     <ons-button id="google">google</ons-button>
                </p>
             <p style="margin-top: 30px;">
                     <ons-button id="facebook">facebook</ons-button>
               </p>
-            <p>
-                <a href="register.html">sign uo for a new user</a>
-            </p>
+            
+        </div> -->
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sign In</h5>
+                            <hr class="my-4">
+                            <p>
+                                <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+                            </p>
+                            <p>
+                                <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+                            </p>
+                            <p style="margin-top: 30px;">
+                                <ons-button id="login">Sign in</ons-button>
+                            </p>
+                            <button id="google" class="btn btn-lg btn-google btn-block text-uppercase">
+                                <i class="fab fa-google mr-2"></i> Sign in with Google</button>
+                            <button id="facebook" class="btn btn-lg btn-facebook btn-block text-uppercase">
+                                <i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                            <p>
+                                <a href="register.html">sign uo for a new user</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </ons-page>
-    <script src="../js/login.js"></script>
 </body>
 
 </html>

@@ -47,10 +47,6 @@ document.addEventListener('init', function (event) {
                 $("#btTool").hide()
             })
         }, 500);
-    }else if(page.id == "logout"){
-        setTimeout(() => {
-        QRScanner.hide()
-    }, 500);
     }
 });
 
